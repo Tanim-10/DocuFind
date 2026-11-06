@@ -1,0 +1,24 @@
+Web Search and Data Mining Foundations
+
+Course: Web Search and Mining (WSM)
+Topic: Architecture of Large Scale Web Engines
+
+1. Web Crawling and Document Acquisition
+A web search engine begins with automated web crawlers (spiders) that traverse hyperlinks across the World Wide Web. Crawlers discover billions of pages, download HTML content, and store them in raw web repositories.
+
+2. Document Indexing and Processing
+Once web pages are acquired, text extraction modules parse HTML tags, scripts, and styling to retrieve the main body text. The indexing pipeline tokenizes text, removes punctuation, applies case folding, and constructs distributed inverted indexes.
+
+3. The PageRank Algorithm and Link Analysis
+Developed by Larry Page and Sergey Brin, PageRank assigns a numerical weight to each hyperlinked document based on link structure. A webpage is deemed important if other important pages link to it. Link analysis supplements textual relevance scores with authority metrics.
+
+4. Query Processing and Term Frequency
+When a user submits a query to a search engine:
+- The query parser normalizes query keywords.
+- Postings lists corresponding to the query terms are retrieved from disk or memory.
+- The scoring module calculates cosine similarity, TF-IDF, or BM25 relevance rankings.
+- Results are ranked and presented with contextual snippets highlighting matching query keywords.
+
+5. Handling Wildcard Queries in Mining
+In information mining and exploratory search, researchers frequently issue wildcard queries like 'data*base' or 'search*' to retrieve morphological derivations and compound expressions. Fast wildcard algorithms use permutation indexes or k-gram vocabulary indexes to avoid linear corpus rescans.
+

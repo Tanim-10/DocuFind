@@ -1,0 +1,25 @@
+Information Retrieval Systems and Inverted Indexes
+
+1. Introduction to Information Retrieval
+Information Retrieval (IR) is the discipline concerned with finding material (usually documents) of an unstructured nature (usually text) that satisfies an information need from within large collections stored on computers.
+
+Modern information retrieval systems power search engines, digital libraries, and enterprise knowledge repositories. Unlike relational databases that perform exact Boolean matches on structured fields, IR systems deal with fuzzy linguistic queries and produce ranked lists of results.
+
+2. The Inverted Index Data Structure
+The foundational architecture of modern retrieval engines is the inverted index. An inverted index consists of two primary components:
+- Vocabulary / Dictionary: A collection of distinct normalized terms extracted from the corpus.
+- Postings Lists: For each term, a linked list or array of postings containing document identifiers (doc_id), term frequency (tf) within that document, and positional offsets.
+
+3. Text Processing Pipeline
+Before documents can be queried, the raw textual content undergoes transformation:
+- Document Extraction: Parsing raw formats such as PDF, DOCX, and TXT into character streams.
+- Tokenization: Splitting contiguous text streams into individual lexical tokens, eliminating non-essential punctuation.
+- Case Folding: Normalizing capitalization (e.g. converting 'Computer' and 'COMPUTER' to 'computer') to guarantee case-insensitive search.
+- Term Weighting: Computing statistical importance metrics like TF-IDF (Term Frequency - Inverse Document Frequency) or BM25 to rank documents by relevance score.
+
+4. Wildcard Query Processing
+Users often need to retrieve documents when exact spellings are uncertain or when searching for word variations. Wildcard queries employ metacharacters:
+- The asterisk (*) represents zero or more alphanumeric characters. For example, "comput*" matches "computer", "computing", "computational", and "computation".
+- The question mark (?) represents exactly one character. For example, "alg?orithm" matches variations.
+During query processing, the engine scans the indexed vocabulary to expand the wildcard into matching terms, retrieves the corresponding postings lists, and computes an aggregated relevance score.
+
